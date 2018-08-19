@@ -1,0 +1,50 @@
+<style>
+	.print-format table, .print-format tr, 
+	.print-format td, .print-format div, .print-format p {
+		font-family: Arial Black,Arial Bold,Gadget,sans-serif;
+		vertical-align: middle;
+		
+		
+	}
+	hr { 
+        	display: block;
+	       	margin-top: 0.5em;
+	    	margin-bottom: 0.5em;
+	    	margin-left: auto;
+	    	margin-right: auto;
+	    	border-style: inset;
+	    	border-width: 1px;
+	} 
+	.test
+	{
+		height:100mm;
+		width:75mm;
+		display:block;
+		transform: rotate(-90deg);
+	}
+	.pagebreak { page-break-before: always; }
+	@media screen {
+		.print-format {
+			width: 75mm;
+			padding: 0in;
+			min-height: 150mm;
+			
+			
+		}
+	}
+</style>
+			{% for(var i=0, l=data.length; i<l; i++) { %}	
+			<div class="test">
+			<br><br><br><br><br>
+			<p style="font-size:19px;font-weight:bold;width:70%;text-transform: uppercase;">To</p>
+			<p style="font-size:19px;font-weight:bold;width:70%;text-transform: uppercase;">{% if(data[i][__("Name")]) { %}{%= data[i][__("Name")] %}{% } %}</p>
+			<p style="font-size:17px;font-weight:bold;width:90%;text-transform: uppercase;">{% if(data[i][__("Address")]) { %}{%= data[i][__("Address")] %}{% } %}</p>
+			
+			<p style="font-size:19px;font-weight:bold;width:70%;text-transform: uppercase;">{% if(data[i][__("Mobile No.")]) { %}Mobile:{%= data[i][__("Mobile No.")] %}{% } %}</p>
+			<hr>
+			<h2 class="text-center">***Happy Diwali***</h2>
+			</div>
+			
+<div class="pagebreak"> </div>
+			
+			{% } %}

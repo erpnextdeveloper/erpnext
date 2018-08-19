@@ -1,0 +1,29 @@
+esy<style>
+	.print-format table, .print-format tr, 
+	.print-format td, .print-format div, .print-format p {
+		font-family: Arial Black,Arial Bold,Gadget,sans-serif;
+		line-height: 120%;
+		vertical-align: middle;
+		margin-left:60px;
+	}
+	.pagebreak { page-break-before: always; }
+	@media screen {
+		.print-format {
+			width: 100mm;
+			padding: 0in;
+			min-height: 50mm;
+			
+		}
+	}
+</style>
+			{% for(var i=0, l=data.length; i<l; i++) { %}	
+			<p style="font-size:13px;font-weight:bold;width:70%;text-transform: uppercase;">{% if(data[i][__("Owner's Name")]) { %}{%= data[i][__("Owner's Name")] %}{% } %}</p>
+			<p style="font-size:12px;font-weight:bold;width:70%;text-transform: uppercase;">{% if(data[i][__("Salon / Parlor / Spa Name")]) { %}{%= data[i][__("Salon / Parlor / Spa Name")] %}{% } %}</p>
+			<p style="font-size:12px;font-weight:bold;width:70%;text-transform: uppercase;">{% if(data[i][__("Door / Building / Plot Number")]) { %}{%= data[i][__("Door / Building / Plot Number")] %}{% } %}</p>
+			<p style="font-size:12px;font-weight:bold;width:70%;text-transform: uppercase;">{% if(data[i][__("Street")]) { %}{%= data[i][__("Street")] %}{% } %}</p>
+			<p style="font-size:12px;font-weight:bold;width:70%;text-transform: uppercase;">{% if(data[i][__("Landmark")]) { %}{%= data[i][__("Landmark")] %}{% } %}</p>
+			<p style="font-size:12px;font-weight:bold;width:70%;text-transform: uppercase;">{% if(data[i][__("Area")]) { %}{%= data[i][__("Area")] %}{% } %}</p>
+			<p style="font-size:12px;font-weight:bold;width:70%;text-transform: uppercase;">{% if(data[i][__("City")]) { %}{%= data[i][__("City")] %}-{%= data[i][__("PIN")] %}{% } %}</p>
+			<p style="font-size:12px;font-weight:bold;width:70%;text-transform: uppercase;">{% if(data[i][__("Mobile No.")]) { %}Mobile:{%= data[i][__("Mobile No.")] %}{% } %}</p>	
+			<div class="pagebreak"> </div>
+			{% } %}

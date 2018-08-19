@@ -1,0 +1,42 @@
+{
+ "add_total_row": 0, 
+ "apply_user_permissions": 1, 
+ "creation": "2018-01-10 19:17:53.566855", 
+ "disabled": 0, 
+ "docstatus": 0, 
+ "doctype": "Report", 
+ "idx": 0, 
+ "is_standard": "Yes", 
+ "letter_head": "BSPL Letter Head", 
+ "modified": "2018-01-10 19:21:34.983917", 
+ "modified_by": "Administrator", 
+ "module": "Accounts", 
+ "name": "HSN1", 
+ "owner": "Administrator", 
+ "ref_doctype": "Sales Invoice", 
+ "report_name": "HSN1", 
+ "report_type": "Script Report", 
+ "roles": [
+  {
+   "role": "CA"
+  }, 
+  {
+   "role": "Accounts User"
+  }, 
+  {
+   "role": "Stock Manager"
+  }, 
+  {
+   "role": "MIS"
+  }, 
+  {
+   "role": "Stock User"
+  }, 
+  {
+   "role": "Accounts Manager"
+  }, 
+  {
+   "role": "System Manager"
+  }
+ ]
+}

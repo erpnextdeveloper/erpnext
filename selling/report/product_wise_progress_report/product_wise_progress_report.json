@@ -1,0 +1,43 @@
+{
+ "add_total_row": 1, 
+ "apply_user_permissions": 1, 
+ "creation": "2018-02-26 14:01:55.820621", 
+ "disabled": 0, 
+ "docstatus": 0, 
+ "doctype": "Report", 
+ "idx": 0, 
+ "is_standard": "Yes", 
+ "letter_head": "BSPL Letter Head", 
+ "modified": "2018-05-03 18:06:19.954186", 
+ "modified_by": "Administrator", 
+ "module": "Selling", 
+ "name": "Product Wise Progress Report", 
+ "owner": "Administrator", 
+ "query": "select soi.item_name as \"Item Name::300\",\nit.brand as \"brand::110\",\nit.category as \"category::60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 4  THEN soi.qty ELSE 0 END) as \"Apr-Qty:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 4  THEN soi.CLP_amount ELSE 0 END) as \"Apr-Total:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 5  THEN soi.qty ELSE 0 END) as \"May-Qty:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 5  THEN soi.CLP_amount ELSE 0 END) as \"May-Total:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 6  THEN soi.qty ELSE 0 END) as \"Jun-Qty:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 6  THEN soi.CLP_amount ELSE 0 END) as \"Jun-Total:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 7  THEN soi.qty ELSE 0 END) as \"Jul-Qty:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 7  THEN soi.CLP_amount ELSE 0 END) as \"Jul-Total:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 8  THEN soi.qty ELSE 0 END) as \"Aug-Qty:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 8  THEN soi.CLP_amount ELSE 0 END) as \"Aug-Total:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 9  THEN soi.qty ELSE 0 END) as \"Sep-Qty:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 9  THEN soi.CLP_amount ELSE 0 END) as \"Sep-Total:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 10  THEN soi.qty ELSE 0 END) as \"Oct-Qty:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 10 THEN soi.CLP_amount ELSE 0 END) as \"Oct-Total:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 11  THEN soi.qty ELSE 0 END) as \"Nov-Qty:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 11  THEN soi.CLP_amount ELSE 0 END) as \"Nov-Total:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 12  THEN soi.qty ELSE 0 END) as \"Dec-Qty:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 12 THEN soi.CLP_amount ELSE 0 END) as \"Dec-Total:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 1  THEN soi.qty ELSE 0 END) as \"Jan-Qty:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 1  THEN soi.CLP_amount ELSE 0 END) as \"Jan-Total:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 2  THEN soi.qty ELSE 0 END) as \"Feb-Qty:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 2  THEN soi.CLP_amount ELSE 0 END) as \"Feb-Total:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 3  THEN soi.qty ELSE 0 END) as \"Mar-Qty:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) = 3  THEN soi.CLP_amount ELSE 0 END) as \"Mar-Total:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) between 1 and 12  THEN soi.qty ELSE 0 END) as \"Total-Qty:Float:60\",\nSUM(CASE WHEN MONTH(so.posting_date) between 1 and 12  THEN soi.CLP_amount ELSE 0 END) as \"Total-Total:Float:60\"\n\n\nfrom `tabSecondary Sales Order Item` soi inner join `tabSecondary Sales Order` so inner join `tabItem` it where soi.item_name = it.item_name and soi.parent = so.name and so.posting_date between (select year_start_date from `tabFiscal Year` where name = %(fiscal_year)s) and (select year_end_date from `tabFiscal Year` where name = %(fiscal_year)s)  group by soi.item_name,it.brand,it.category ORDER BY it.brand, soi.item_name", 
+ "ref_doctype": "Secondary Sales Order", 
+ "report_name": "Product Wise Progress Report", 
+ "report_type": "Query Report", 
+ "roles": [
+  {
+   "role": "Stock User"
+  }, 
+  {
+   "role": "Sales User"
+  }, 
+  {
+   "role": "Sales Manager"
+  }, 
+  {
+   "role": "Accounts User"
+  }, 
+  {
+   "role": "Maintenance User"
+  }, 
+  {
+   "role": "Employee"
+  }, 
+  {
+   "role": "MIS"
+  }
+ ]
+}
